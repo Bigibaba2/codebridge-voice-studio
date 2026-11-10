@@ -26,7 +26,7 @@ Uses Node.js HTTP and built-in SQLite, browser Web Speech recognition/synthesis 
 
 ## Recording and submission status
 
-Five genuine recorded checks covering normal booking, date correction, shortage, press-to-talk interruption/correction and repeated confirmation have been completed with synthetic reservation fixtures. Six original evidence clips include the repeat-confirmation continuation. A separate final walkthrough is 101.77 seconds (under three minutes); the user approved its playback and closing cut. See test-results.md for outcomes and evidence limits. The videos are not part of this source package.
+Five genuine recorded checks covering normal booking, date correction, shortage, press-to-talk interruption/correction and repeated confirmation have been completed with synthetic reservation fixtures. Six original evidence clips include the repeat-confirmation continuation. A separate final walkthrough is 101.77 seconds (under three minutes); the user approved its playback and closing cut. See test-results.md for outcomes and evidence limits. The video bytes are not part of this source package; verified public file links are in [recordings.md](recordings.md).
 
 The interruption case includes a recognition error and retries before the corrected booking succeeds. The repeat-confirmation case initially failed a narrow phrase-matching checker; a separate review of the actual recognized requests and before/after reservation snapshots established that repetition did not create another reservation. Neither issue is hidden or represented as a flawless automated pass.
 

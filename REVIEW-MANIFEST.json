@@ -74,8 +74,8 @@
     },
     {
       "file": "scripts/package-review.js",
-      "bytes": 3823,
-      "sha256": "247c02a7dd20c2814c57989b9203fffd3d6494f9f848b4ac06113eb2e2c9d2a6"
+      "bytes": 3844,
+      "sha256": "4b3825f47c5a1a64d45e7f15ac0ea70a3713d493f23acffc10c2ee589c1ba3b5"
     },
     {
       "file": "tests/interpret.test.js",
@@ -144,13 +144,13 @@
     },
     {
       "file": "README.md",
-      "bytes": 4875,
-      "sha256": "d631fe9b50e50a9358e4fbdd073789b6d055f646b41525a3d605ca4dfc42dc8c"
+      "bytes": 5232,
+      "sha256": "255d956e1a65f2de77114645e31f3b36d871e8073f53c23f5b6831298698eab1"
     },
     {
       "file": "docs/reviewer-guide.md",
-      "bytes": 5585,
-      "sha256": "9c8ae2132729399a366d40265b26e3f419866e8204261fb1ecc763eb50d5aa0d"
+      "bytes": 5656,
+      "sha256": "c85b5c7a56fbff168b03ad4b5724b2367e12f157b4f2cc2b2130305f8e812749"
     },
     {
       "file": "docs/recording-run-sheet.md",
@@ -206,6 +206,11 @@
       "file": "docs/FREE-REVIEWER-MODE.md",
       "bytes": 7260,
       "sha256": "116b68fb708fee98eb18f70d9347e48d66a4ec90e83ae3531d65a5dbc3e41ee5"
+    },
+    {
+      "file": "docs/recordings.md",
+      "bytes": 2820,
+      "sha256": "f0aa062cc759a96defa83f290e88995e1d72b3754fcc8ce2f8e3891e8be3d363"
     }
   ],
   "exclusions": [

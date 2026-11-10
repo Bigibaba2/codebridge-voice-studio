@@ -2,6 +2,10 @@
 
 A local voice-first equipment reservation demo for review. Independent project, not an official Codebridge product.
 
+## Review materials
+
+[Watch the 1:41.77 walkthrough](https://drive.google.com/file/d/1ooTmOCz-yiKsuqYj_Ci3_Z6yoDexLbGy/view?usp=drivesdk). The [six original test clips](docs/recordings.md), [before/after state evidence](docs/recorded-test-evidence.json) and [test results](docs/test-results.md) are available separately. A hosted demo is not yet deployed.
+
 ## Run
 
 Use Node.js 22.13 or later with built-in node:sqlite. There are no npm runtime dependencies or API keys. No installation step is required.
