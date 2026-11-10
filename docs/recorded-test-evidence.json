@@ -1,0 +1,650 @@
+{
+  "formatVersion": 1,
+  "scope": "Synthetic equipment-booking fixtures from genuine user-operated voice checks. Sanitized database snapshots, not complete database exports.",
+  "redactions": "Session IDs, timestamps, raw requests/transcripts and local paths removed. Reservation IDs replaced by stable test labels; dates and quantities are unchanged.",
+  "measurementLimits": "No acoustic latency or independent listening claim. User reviewed recording sound. Test 4 includes a recognition retry; Test 5 includes a separately recorded continuation.",
+  "cases": [
+    {
+      "case": "1-normal",
+      "originalRecordingFile": "Screen Recording 2026-11-11 at 00.29.51.mov",
+      "caseDates": {
+        "start": "2026-10-13",
+        "end": "2026-10-15"
+      },
+      "before": {
+        "reservationCount": 1,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "after": {
+        "reservationCount": 2,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 1,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "newReservationLabels": [
+        "test-1"
+      ],
+      "allEarlierReservationsUnchanged": true
+    },
+    {
+      "case": "2-date-correction",
+      "originalRecordingFile": "Screen Recording 2026-11-11 at 00.33.56.mov",
+      "caseDates": {
+        "start": "2026-10-23",
+        "end": "2026-10-25"
+      },
+      "before": {
+        "reservationCount": 2,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "after": {
+        "reservationCount": 3,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 1,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "newReservationLabels": [
+        "test-2"
+      ],
+      "allEarlierReservationsUnchanged": true,
+      "correction": {
+        "supersededDates": {
+          "start": "2026-10-20",
+          "end": "2026-10-22"
+        },
+        "onlyCorrectedDatesBooked": true
+      }
+    },
+    {
+      "case": "3-insufficient-stock",
+      "originalRecordingFile": "Screen Recording 2026-11-11 at 00.38.03.mov",
+      "caseDates": {
+        "start": "2026-10-10",
+        "end": "2026-10-12"
+      },
+      "before": {
+        "reservationCount": 3,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 1,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "after": {
+        "reservationCount": 3,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 1,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "newReservationLabels": [],
+      "allEarlierReservationsUnchanged": true,
+      "request": {
+        "itemId": "camera",
+        "quantity": 2,
+        "confirmationRefused": true
+      }
+    },
+    {
+      "case": "4-interruption-correction",
+      "originalRecordingFile": "Screen Recording 2026-11-11 at 00.41.30.mov",
+      "caseDates": {
+        "start": "2026-11-01",
+        "end": "2026-11-03"
+      },
+      "before": {
+        "reservationCount": 3,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "after": {
+        "reservationCount": 4,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-4",
+            "start": "2026-11-01",
+            "end": "2026-11-03",
+            "items": [
+              {
+                "itemId": "tripod",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 2,
+          "microphone": 1
+        }
+      },
+      "newReservationLabels": [
+        "test-4"
+      ],
+      "allEarlierReservationsUnchanged": true,
+      "qualification": "A correction changed two tripods to one. A misrecognized confirmation was rejected, a fresh review followed, and explicit confirmation then saved one reservation. Control/visual evidence supports the press-to-talk sequence; audible cutoff timing was not independently measured."
+    },
+    {
+      "case": "5-repeat-initial",
+      "originalRecordingFile": "Screen Recording 2026-11-11 at 00.46.32.mov",
+      "caseDates": {
+        "start": "2026-11-05",
+        "end": "2026-11-06"
+      },
+      "before": {
+        "reservationCount": 4,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-4",
+            "start": "2026-11-01",
+            "end": "2026-11-03",
+            "items": [
+              {
+                "itemId": "tripod",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 1
+        }
+      },
+      "after": {
+        "reservationCount": 5,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-4",
+            "start": "2026-11-01",
+            "end": "2026-11-03",
+            "items": [
+              {
+                "itemId": "tripod",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-5",
+            "start": "2026-11-05",
+            "end": "2026-11-06",
+            "items": [
+              {
+                "itemId": "microphone",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 0
+        }
+      },
+      "newReservationLabels": [
+        "test-5"
+      ],
+      "allEarlierReservationsUnchanged": true
+    },
+    {
+      "case": "5-repeat-continuation",
+      "originalRecordingFile": "Screen Recording 2026-11-11 at 00.49.03.mov",
+      "caseDates": {
+        "start": "2026-11-05",
+        "end": "2026-11-06"
+      },
+      "before": {
+        "reservationCount": 5,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-4",
+            "start": "2026-11-01",
+            "end": "2026-11-03",
+            "items": [
+              {
+                "itemId": "tripod",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-5",
+            "start": "2026-11-05",
+            "end": "2026-11-06",
+            "items": [
+              {
+                "itemId": "microphone",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 0
+        }
+      },
+      "after": {
+        "reservationCount": 5,
+        "reservations": [
+          {
+            "reservationLabel": "seed",
+            "start": "2026-10-10",
+            "end": "2026-10-12",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-1",
+            "start": "2026-10-13",
+            "end": "2026-10-15",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-2",
+            "start": "2026-10-23",
+            "end": "2026-10-25",
+            "items": [
+              {
+                "itemId": "camera",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-4",
+            "start": "2026-11-01",
+            "end": "2026-11-03",
+            "items": [
+              {
+                "itemId": "tripod",
+                "quantity": 1
+              }
+            ]
+          },
+          {
+            "reservationLabel": "test-5",
+            "start": "2026-11-05",
+            "end": "2026-11-06",
+            "items": [
+              {
+                "itemId": "microphone",
+                "quantity": 1
+              }
+            ]
+          }
+        ],
+        "remainingStockForCaseDates": {
+          "camera": 2,
+          "tripod": 3,
+          "microphone": 0
+        }
+      },
+      "newReservationLabels": [],
+      "allEarlierReservationsUnchanged": true,
+      "qualification": "Two finalized confirmation requests were reviewed. The narrow automated phrase counter matched only one; manual comparison of both requests and database snapshots established no duplicate. This is not represented as a clean automated checker pass."
+    }
+  ]
+}

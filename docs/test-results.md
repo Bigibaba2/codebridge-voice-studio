@@ -2,7 +2,7 @@
 
 This summary contains only synthetic equipment-reservation demo outcomes. Raw recordings, live events, database files, booking identifiers and private source paths are excluded. Recorded-case findings are summarized from the local technical recording review, not a fresh independent listening pass.
 
-Expected inputs and outcomes are specified in recording-run-sheet.md. The table below reports actual outcomes, including failures and retries.
+Expected inputs and outcomes are specified in recording-run-sheet.md. Sanitized before/after inventory and reservation states are in [recorded-test-evidence.json](recorded-test-evidence.json). It retains dates, quantities and row counts, replacing reservation IDs with stable test labels and omitting sessions, timestamps and raw speech. The table below reports actual outcomes, including failures and retries.
 
 ## Recorded checks
 

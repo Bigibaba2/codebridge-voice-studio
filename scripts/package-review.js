@@ -13,7 +13,7 @@ const allowlist=[
  'tests/interpret.test.js','tests/desk.test.js','tests/dropped-items.test.js','tests/voice.test.js',
  'tests/live-check.test.js','tests/http.test.js','tests/orders.test.js','tests/live-evidence.test.js',
  'tests/recognition-options.test.js','tests/order-interpret.test.js','tests/scenarios.json','tests/measurement.test.js',
- 'package.json','README.md','docs/reviewer-guide.md','docs/recording-run-sheet.md','docs/test-results.md','.gitignore','evidence/.gitkeep'
+ 'package.json','README.md','docs/reviewer-guide.md','docs/recording-run-sheet.md','docs/test-results.md','docs/recorded-test-evidence.json','.gitignore','evidence/.gitkeep'
 ];
 const files=new Map();
 for(const name of allowlist){

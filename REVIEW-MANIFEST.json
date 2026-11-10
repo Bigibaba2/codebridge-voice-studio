@@ -74,8 +74,8 @@
     },
     {
       "file": "scripts/package-review.js",
-      "bytes": 3646,
-      "sha256": "0564a56878cbd861b62932a527129a9335e659cc2e7e14580a92640667df4659"
+      "bytes": 3681,
+      "sha256": "b44fa8d42fda7bf488f427cd596ee5513c83ef695cae18ed427e7680ed008e09"
     },
     {
       "file": "tests/interpret.test.js",
@@ -159,8 +159,8 @@
     },
     {
       "file": "docs/test-results.md",
-      "bytes": 4467,
-      "sha256": "68b50482331beacff717b80a945885720ba4a5079f16fb6e4a5f456f6486c1a5"
+      "bytes": 4735,
+      "sha256": "bcedae53b46d043d18bf02b01666b0bcc56dcc01d4bb5c3e1df2ee3b1b26f21b"
     },
     {
       "file": ".gitignore",
@@ -171,6 +171,11 @@
       "file": "evidence/.gitkeep",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "docs/recorded-test-evidence.json",
+      "bytes": 16684,
+      "sha256": "f79a0aed588d86d579b18085226d0c194076c7f226042eb798bcc14a12625c86"
     }
   ],
   "exclusions": [
