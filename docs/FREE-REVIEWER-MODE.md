@@ -1,0 +1,41 @@
+# Optional temporary reviewer hosting
+
+Prepared for review only. No service has been deployed by this change, and no availability, provider terms, real microphone accuracy or acoustic latency is certified here.
+
+## Local mode versus hosted reviewer mode
+
+The normal `npm start` behavior still uses the local SQLite database. **Do not expose that default mode publicly:** it intentionally has shared unauthenticated state for local demonstrations. CLI startup refuses non-loopback `HOST` values unless `REVIEWER_MODE=1`, before creating directories, opening the database or listening. The default loopback mode remains unchanged.
+
+Setting `REVIEWER_MODE=1` selects an isolated, temporary simulated catalog for each browser cookie. Each workspace has a separate in-memory SQLite database, initialized with synthetic inventory and the existing synthetic seed booking. Existing local files and `DB_PATH` are not opened in this mode. No local database or user recordings should be uploaded.
+
+A workspace is not a user account. A cryptographically random 256-bit cookie is the bearer credential; only its SHA-256 hash is retained in the server map. The cookie is `__Host-` prefixed, HttpOnly, Secure, SameSite=Strict and scoped to `/`, with no Domain. The credential never appears in URLs or JSON responses. Use HTTPS in deployment. Anyone with the cookie can access that workspace, and tabs in the same browser profile share it. Separate reviewer browsers have **separate simulated stock**, not a production shared inventory pool. Bookings remain transactional across conversations within one workspace.
+
+## Temporary state and privacy
+
+- Absolute workspace retention is 30 minutes, not extended by activity. Expired workspaces are removed during requests or within 30 seconds by a sweeper. Server memory is lost on restart. Cookies expire at 30 minutes.
+- Render's free service can sleep after 15 idle minutes and need about one minute to wake. Sleep/restart can discard all demo state. The visible notice explicitly says bookings are temporary simulations, not real or durable reservations.
+- Stale/unknown cookies receive JSON 410 for state/turn requests. Only an explicit new-conversation request creates a replacement workspace. On page reload, a stale saved conversation is replaced with a visible recovery warning; it is never called restored. An expired turn clears stale UI state and invites a new conversation.
+- Transcripts and replay information are temporarily held as conversation state, including ASR alternatives needed for interpretation/replay. The server does not record audio or log raw request bodies/ASR/errors in hosted mode. Hosted browser diagnostic `record()` collection is disabled. A reviewer may still deliberately export their own conversation snapshot; exported files and browser-displayed state are not remotely erased on expiry.
+- Browser speech recognition may send audio to the browser vendor. Experimental on-device selection retains its explicit opt-in/setup behavior. Use synthetic details only; no production personal data.
+
+## Finite limits
+
+Per process: 32 simultaneous workspaces, 600 workspace API requests per minute, 64 open connections. Per workspace: 8 conversations, 100 accepted unique turns, 120 requests per minute. Each SQLite database is limited to 512 pages (normally 2 MiB at 4096-byte pages), in addition to those record caps. Each JSON body is capped at 8192 **bytes**, with a 10-second absolute read deadline. Socket/header/request deadlines are also configured. Retrying an accepted event still recovers its result at the turn cap. Request-rate caps can temporarily delay that recovery.
+
+Malformed/forged/duplicate cookies cannot select an existing workspace. Cross-owner session reads, mutations, replay and conflict paths return a non-leaking missing-session response. Body/rate/expiry errors return JSON. Unexpected hosted errors return a generic response and do not print raw errors. No reset endpoint or cross-workspace lookup is added.
+
+These are bounded demonstration safeguards, **not a production security claim or abuse-proof public service**. An anonymous visitor can consume shared capacity or rate budget. No distributed rate limiter, account authentication, durable recovery, payment workflow or production observability is provided. Configuration and health reads, static assets, and invalid requests rejected before workspace resolution are outside the workspace API rate counters. Transport connection/body limits still apply. Network denial-of-service protection is the host's responsibility.
+
+## Optional FREE Render configuration
+
+`render.yaml` proposes one Node web service with `plan: free`, no disk/database/add-on, `REVIEWER_MODE=1`, `HOST=0.0.0.0`, and Node 24.7.0. It installs no packages at build time. Runtime uses Node built-ins only. `.node-version` matches the tested local Node 24.7.0. Hosting setup remains a separate approval/review step; verify the selected FREE plan, current provider terms and final settings before creating any service. This preparation neither creates an account nor approves OAuth, charges or paid upgrades. Do not switch off reviewer mode on the public service.
+
+## Reproduce checks
+
+Run `npm test`, `npm run check`, and `npm run evidence` on Node 24.7.0. `tests/reviewers.test.js` exercises two-owner isolation and independent stock, same-owner stock/atomic rejection, idempotency/conflicts, malformed/forged/duplicate cookies, expiry/restart, finite quotas, JSON/body byte limits, slow chunked input, cross-origin checks, and redacted internal errors. All HTTP tests use ephemeral loopback ports and synthetic data, not the recording instance. Existing regression tests still exercise transactional bookings, stock and duplicate confirmation in local mode. The evidence command is synthetic transcript/HTTP timing, not live audio proof.
+
+## Preparation verification
+
+On local Node 24.7.0, `npm test` and `npm run check` each passed **201 tests**. `npm run evidence` passed **18 synthetic transcript scenarios** and measured **100 isolated HTTP/disk operations**. The existing `npm run test:browser` passed **55 synthetic browser checks** in a fresh headless Chrome instance. `npm run test:reviewer-browser` additionally passed isolated-context checks for Secure/HttpOnly cookies, the temporary notice, a synthetic booking, cross-owner isolation, within-lifetime reload, an empty hosted diagnostic log export, expiry warnings, stale-turn UI clearing, explicit new-conversation recovery and the cold-start configuration gate. These browser scripts start ephemeral loopback services and use fake speech; no microphone, real user profile, live recording runtime or acoustic measurement is used.
+
+Browser checks used an already-installed Playwright package resolved through `NODE_PATH`; no dependency or browser installation was performed. To rerun, make your existing Playwright installation resolvable and run the two browser scripts. They default to installed Chrome on macOS; `CHROMIUM_PATH` can point to another already-installed compatible Chromium executable. Hosting behavior, actual Render provisioning, cold-start latency and real microphone transcription still require separate verification. No deployed URL or recording proof is asserted.

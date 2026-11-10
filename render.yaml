@@ -1,0 +1,17 @@
+# Optional deployment proposal only. No deployment is performed by this file.
+services:
+  - type: web
+    name: codebridge-temporary-reviewer-demo
+    runtime: node
+    plan: free
+    buildCommand: node --version
+    startCommand: node src/server.js
+    healthCheckPath: /api/config
+    envVars:
+      - key: NODE_VERSION
+        value: 24.7.0
+      - key: HOST
+        value: 0.0.0.0
+      - key: REVIEWER_MODE
+        value: "1"
+# Deliberately no disk, external database, secrets, paid services, or build install.

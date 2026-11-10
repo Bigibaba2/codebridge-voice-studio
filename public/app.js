@@ -2,6 +2,7 @@ import { VoiceController, inspectLocalRecognition } from "./voice-controller.js"
 const $ = (id) => document.getElementById(id),
   key = "rental-studio-v2-session",
   recognitionPreferenceKey = "rental-studio-v2-recognition-mode";
+let hostedReviewer = false, configReady = false;
 let state,
   held = false,
   busy = false,
@@ -67,8 +68,8 @@ function renderRecognition() {
   $("privacy").textContent = recognitionMode === "unselected"
     ? "Recognition is blocked until you choose a mode. This app does not store audio."
     : local
-    ? "On-device-only recognition is selected. There is no automatic remote fallback. Transcripts are saved locally; this app does not store audio."
-    : "Your browser’s speech provider may receive audio. Transcripts are saved locally. This app does not store audio.";
+    ? "On-device-only recognition is selected. There is no automatic remote fallback. Transcripts are saved in this demo workspace; this app does not store audio."
+    : "Your browser’s speech provider may receive audio. Transcripts are saved in this demo workspace. This app does not store audio.";
 }
 async function checkLocalRecognition() {
   if (recognitionLocked() || localCapability.status === "checking") return;
@@ -105,6 +106,7 @@ async function setupLocalRecognition() {
   render();
 }
 function record(type, data = {}) {
+  if (hostedReviewer) return;
   log.push({ type, at: new Date().toISOString(), ...data });
 }
 function phase(text) {
@@ -196,7 +198,12 @@ function equipmentName(id) {
 }
 function render() {
   renderRecognition();
-  if (!state) return;
+  if (!state) {
+    $("talk").disabled = true;
+    $("confirm").hidden = true;
+    $("new").disabled = busy || setupInProgress;
+    return;
+  }
   $("status").textContent = state.status.toUpperCase();
   $("reply").textContent = state.reply || "What would you like to rent?";
   const d = state.draft || {};
@@ -414,10 +421,21 @@ async function submit(text, alts = [], source = "voice", retry = false, recognit
     }
   } catch (e) {
     // These statuses are rejected before execution by this local server contract.
-    const rejectedBeforeExecution = [400, 403, 404, 405, 413, 415].includes(
+    const rejectedBeforeExecution = [400, 403, 404, 405, 408, 410, 413, 415, 429].includes(
       e.status,
     );
     if (rejectedBeforeExecution) pending = null;
+    if (hostedReviewer && [404, 410].includes(e.status)) {
+      state = null;
+      try { localStorage.removeItem(key); } catch {}
+      $("status").textContent = "EXPIRED";
+      $("reply").textContent = "Temporary conversation unavailable. Choose New conversation. Previous demo bookings are not restored.";
+      for (const id of ["draft", "stock", "saved-list", "events", "line-availability"]) $(id).replaceChildren();
+      $("saved-title").textContent = "No current workspace";
+      $("database").textContent = "Temporary workspace unavailable.";
+      $("availability").textContent = "Start a new temporary conversation.";
+      $("another").hidden = true;
+    }
     if (e.data?.state) {
       state = e.data.state;
       pending = null;
@@ -624,10 +642,12 @@ $("equipment-hints").onchange = () => {
 $("check-local").onclick = checkLocalRecognition;
 $("setup-local").onclick = setupLocalRecognition;
 async function load(fresh = false) {
+  if (!configReady) { $("error").textContent = "Configuration unavailable or still loading. Reload after the server wakes."; return; }
   if (busy || pending || setupInProgress) return;
   abort();
   busy = true;
   phase("Loading conversation");
+  $("error").textContent = "";
   render();
   try {
     const id = !fresh && localStorage.getItem(key);
@@ -636,7 +656,10 @@ async function load(fresh = false) {
         ? await api(`/api/sessions/${encodeURIComponent(id)}`)
         : await api("/api/sessions", {});
     } catch (error) {
-      if (id && error.status === 404) state = await api("/api/sessions", {});
+      if (id && [404, 410].includes(error.status)) {
+        state = await api("/api/sessions", {});
+        $("error").textContent = "Previous conversation is unavailable. A new temporary conversation was created; previous demo bookings are not restored.";
+      }
       else throw error;
     }
     localStorage.setItem(key, state.sessionId);
@@ -648,7 +671,7 @@ async function load(fresh = false) {
     phase("Ready when you are");
   } catch (e) {
     $("error").textContent =
-      "Could not load the conversation. Check the local server and choose New conversation.";
+      "Could not load the conversation. Check the server (a free host may need about one minute to wake) and choose New conversation.";
     phase("Connection unavailable");
   } finally {
     busy = false;
@@ -705,7 +728,18 @@ $("export").onclick = async () => {
   a.click();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 };
-load();
+async function initialize() {
+  try {
+    const config = await api("/api/config");
+    hostedReviewer = config.temporary === true;
+    configReady = true;
+    $("temporary-notice").hidden = !hostedReviewer;
+    await load();
+  } catch {
+    $("error").textContent = "Server unavailable. A free host may need about one minute to wake. Reload to try again.";
+  }
+}
+initialize();
 
 const evidenceCases = [
   [

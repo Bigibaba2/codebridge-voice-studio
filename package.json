@@ -13,7 +13,8 @@
     "check": "node scripts/check.js",
     "evidence": "node scripts/evidence.js",
     "package:review": "node scripts/package-review.js",
-    "test:browser": "node scripts/browser-checks.cjs"
+    "test:browser": "node scripts/browser-checks.cjs",
+    "test:reviewer-browser": "node scripts/reviewer-browser-checks.cjs"
   },
   "devDependencies": {
     "playwright": "1.62.1"
