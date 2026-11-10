@@ -8,7 +8,7 @@ Follow one reservation from equipment and date collection through a complete rev
 
 Speech recognition can omit equipment, mishear quantities or end unexpectedly. Recognition hints are optional and do not guarantee accuracy. Unresolved finalization is discarded. Missing or ambiguous values are clarified, not silently inferred. A clear review and transactional stock check are more important than a fluent response. Synthetic regressions do not prove real-browser recognition quality.
 
-The parser supports bounded English equipment/date phrases, not general conversation or every locale. This is a local demonstration without authentication or a production hosting/security review. Historical seed data and future synthetic scenario dates are fixtures, not real customer bookings.
+The parser supports bounded English equipment/date phrases, not general conversation or every locale. Default local mode is a shared demonstration without authentication. Optional temporary reviewer mode isolates each browser workspace; it does not provide production account authentication or durable bookings. A real hosted deployment has not yet been reviewed or created. Historical seed data and future synthetic scenario dates are fixtures, not real customer bookings.
 
 ## Original work and reused components
 

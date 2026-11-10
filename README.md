@@ -50,3 +50,7 @@ node scripts/package-review.js ../rental-studio-review-copy
 ```
 
 The copier uses an explicit allowlist and refuses existing destinations. REVIEW-MANIFEST.json records SHA-256 hashes, exclusions and scan scope. Automated checks reduce accidental disclosure but are not a guarantee that source text contains no personal information. Review before any publication. No license grant is provided (UNLICENSED).
+
+## Optional temporary reviewer mode
+
+For a separately approved hosted simulation, see [FREE-REVIEWER-MODE.md](docs/FREE-REVIEWER-MODE.md). REVIEWER_MODE=1 gives each browser an isolated in-memory catalog with finite retention and abuse limits. No existing local database is opened. These demo bookings disappear on expiry, sleep or restart. The supplied Render configuration proposes only a free service; no deployment or zero-billing guarantee is implied. CLI startup refuses a non-loopback host without reviewer mode.

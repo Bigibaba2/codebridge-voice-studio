@@ -7,13 +7,13 @@ const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const target=path.resolve(process.argv[2] || path.join(root,'..','codebridge-voice-studio-review-final'));
 if(target===root || target.startsWith(root+path.sep) || existsSync(target))throw Error('Choose a new directory outside the source project; existing destinations are never overwritten.');
 const allowlist=[
- 'src/server.js','src/catalog.js','src/desk.js','src/interpret.js','src/order-interpret.js',
+ 'src/server.js','src/reviewers.js','src/catalog.js','src/desk.js','src/interpret.js','src/order-interpret.js',
  'public/index.html','public/styles.css','public/voice-controller.js','public/app.js',
- 'scripts/browser-checks.cjs','scripts/check.js','scripts/evidence.js','scripts/live-check.js','scripts/measure-recording.js','scripts/package-review.js',
+ 'scripts/browser-checks.cjs','scripts/reviewer-browser-checks.cjs','scripts/check.js','scripts/evidence.js','scripts/live-check.js','scripts/measure-recording.js','scripts/package-review.js',
  'tests/interpret.test.js','tests/desk.test.js','tests/dropped-items.test.js','tests/voice.test.js',
  'tests/live-check.test.js','tests/http.test.js','tests/orders.test.js','tests/live-evidence.test.js',
- 'tests/recognition-options.test.js','tests/order-interpret.test.js','tests/scenarios.json','tests/measurement.test.js',
- 'package.json','README.md','docs/reviewer-guide.md','docs/recording-run-sheet.md','docs/test-results.md','docs/recorded-test-evidence.json','.gitignore','evidence/.gitkeep'
+ 'tests/reviewers.test.js','tests/recognition-options.test.js','tests/order-interpret.test.js','tests/scenarios.json','tests/measurement.test.js',
+ 'package.json','.node-version','render.yaml','README.md','docs/FREE-REVIEWER-MODE.md','docs/reviewer-guide.md','docs/recording-run-sheet.md','docs/test-results.md','docs/recorded-test-evidence.json','.gitignore','evidence/.gitkeep'
 ];
 const files=new Map();
 for(const name of allowlist){

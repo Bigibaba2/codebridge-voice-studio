@@ -26,13 +26,14 @@ Executed on this exact submission copy using Node.js 24.7.0. Tests use synthetic
 
 | Check | Result | Scope |
 | --- | --- | --- |
-| npm test | 193 passed, 0 failed | Node unit and integration regressions. |
-| npm run check | Passed; 193 tests passed again | JavaScript syntax and regression checks. |
+| npm test | 201 passed, 0 failed | Node unit and integration regressions. |
+| npm run check | Passed; 201 tests passed again | JavaScript syntax and regression checks. |
 | npm run evidence | 18 scenarios passed | Synthetic transcripts, not microphone recognition. |
 | Isolated HTTP/SQLite benchmark | 100 booking iterations passed | Local request/transaction timing only; not acoustic latency. |
-| npm run test:browser | Blocked on this copy: Playwright module unavailable | No dependency installation attempted. Earlier 55 synthetic Chrome checks were reported passed, but are not represented as rerun results. |
+| npm run test:browser | 55/55 passed on the updated source | Fresh headless Chrome contexts and synthetic speech; existing Playwright installation used, no microphone. |
+| npm run test:reviewer-browser | Passed | Two isolated contexts, cookie flags, synthetic booking, reload and expiry recovery, empty hosted diagnostics and cold-start gating. |
 
-Raw newly generated synthetic traces and timing output are retained separately, not included in this source package. Source behavior is unchanged from the prior sanitized review copy; documentation and the local packaging script were updated.
+Raw newly generated synthetic traces and timing output are retained separately, not included in this source package. The recorded checks exercised the local mode before optional reviewer hosting was added. Booking/parser behavior is unchanged; the added temporary reviewer isolation and recovery paths have synthetic HTTP/browser coverage, not a new live microphone test.
 
 ## Measurement boundaries
 
@@ -40,4 +41,4 @@ No independent acoustic phoneme-boundary latency, word-error rate, end-to-end sp
 
 ## Security and portability
 
-No authentication or multi-user authorization is implemented. Keep the default loopback binding; do not expose this demo publicly without a separate deployment/security review. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.
+Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. No service has been deployed, and a separate deployment/billing review is still required. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.
