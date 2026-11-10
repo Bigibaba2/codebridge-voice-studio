@@ -1,6 +1,6 @@
 {
   "formatVersion": 1,
-  "purpose": "Fresh local review copy; not uploaded or published",
+  "purpose": "Sanitized source inventory; runtime data and recordings excluded",
   "files": [
     {
       "file": "src/server.js",
@@ -74,8 +74,8 @@
     },
     {
       "file": "scripts/package-review.js",
-      "bytes": 3632,
-      "sha256": "99361c7e308e12624f59581a11d53678ff51aa5a7b50c277d351fa184884e05b"
+      "bytes": 3646,
+      "sha256": "0564a56878cbd861b62932a527129a9335e659cc2e7e14580a92640667df4659"
     },
     {
       "file": "tests/interpret.test.js",
@@ -149,8 +149,8 @@
     },
     {
       "file": "docs/reviewer-guide.md",
-      "bytes": 5285,
-      "sha256": "0e557c88f51498045e386ea41a57ed15daa148c0c05c4ec8108e8d45c9fe24f8"
+      "bytes": 5406,
+      "sha256": "092caf2e558fdbcc0dfaa8a99d647574ae97ec70c733f6288fa4d7df56fc60bb"
     },
     {
       "file": "docs/recording-run-sheet.md",
