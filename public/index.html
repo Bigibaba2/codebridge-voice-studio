@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rental Studio · Voice demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/"
+        >◈ <b>RENTAL STUDIO</b><span>VOICE EXPERIENCE</span></a
+      >
+      <div class="header-actions">
+        <span class="badge">ISOLATED DEMO</span
+        ><button id="new">New conversation</button
+        ><button id="evidence">Evidence ↗</button>
+      </div>
+    </header>
+    <main>
+      <div class="intro">
+        <span class="eyebrow">LESS TYPING. MORE CONVERSATION.</span>
+        <h1>Your next rental. <span>Just say the word.</span></h1>
+        <p>
+          Tell us what you need, how many, and when.<br />We’ll check
+          availability and confirm every detail with you.
+        </p>
+      </div>
+      <section class="workspace">
+        <section class="voice-card">
+          <div class="section-heading">
+            <span class="eyebrow">01 / YOUR VOICE ASSISTANT</span
+            ><button id="voice">Voice on</button>
+          </div>
+          <div class="orb" aria-hidden="true"><span>◈</span></div>
+          <div id="phase" class="phase" role="status">Ready when you are</div>
+          <p id="reply" class="reply">
+            Hold the microphone and tell us what you’d like to rent.
+          </p>
+          <p id="live" class="live" aria-live="polite"></p>
+          <button
+            id="talk"
+            class="talk"
+            aria-pressed="false"
+            aria-label="Hold microphone button or Space to talk; release to send"
+          >
+            ● &nbsp; Hold to talk
+          </button>
+          <div class="voice-controls">
+            <span>or hold Space · release to send</span
+            ><button id="stop">Stop speaking</button>
+          </div>
+          <p id="error" role="alert"></p>
+          <button id="retry" hidden>Retry same request</button>
+          <details class="recognition-options">
+            <summary>Recognition options</summary>
+            <label for="recognition-mode">Speech recognition</label>
+            <select id="recognition-mode" aria-describedby="recognition-help">
+              <option value="unselected" disabled hidden>Choose a recognition mode</option>
+              <option value="browser">Browser default</option>
+              <option value="local">On-device only (experimental)</option>
+            </select>
+            <button id="check-local">Check local readiness</button>
+            <button id="setup-local" hidden>Setup local English</button>
+            <p id="setup-note" class="small" hidden>
+              Chrome may download official English resources; size is unknown.
+              Setup does not start the microphone or change your mode.
+            </p>
+            <p id="setup-status" class="small" role="status"></p>
+            <label id="hint-option" class="hint-option" hidden>
+              <input id="equipment-hints" type="checkbox" disabled />
+              Equipment hints (experimental)
+            </label>
+            <p id="recognition-help" class="small" role="status"></p>
+            <p id="local-readiness" class="small" role="status"></p>
+          </details>
+          <p id="privacy" class="privacy">
+            Your browser’s speech provider may receive audio.<br />Transcripts
+            are saved locally. This app does not store audio.
+          </p>
+        </section>
+        <aside class="details">
+          <section class="card">
+            <div class="section-heading">
+              <span class="eyebrow">02 / YOUR RENTAL</span
+              ><span id="status" class="badge">DRAFT</span>
+            </div>
+            <dl id="draft"></dl>
+            <p class="small">
+              One reservation. All equipment shares the same dates, including
+              both start and end dates.
+            </p>
+            <div id="choices"></div>
+            <button id="confirm" class="confirm" hidden>
+              Confirm entire reservation →
+            </button>
+            <button id="another" class="another-reservation" hidden>
+              Start another reservation →
+            </button>
+            <ul
+              id="line-availability"
+              class="line-availability"
+              aria-label="Availability by equipment"
+            ></ul>
+            <p id="availability" class="small">
+              We’ll check stock for your selected dates.
+            </p>
+          </section>
+          <section class="card">
+            <span id="stock-heading" class="eyebrow">INVENTORY TOTALS</span>
+            <div id="stock"></div>
+            <p id="stock-context" class="small">
+              Choose dates to check availability. Totals are not remaining
+              stock.
+            </p>
+            <details id="saved-reservations">
+              <summary id="saved-title">Saved reservations</summary>
+              <p class="small">
+                Shared across conversations. Starting a new conversation does
+                not remove these reservations.
+              </p>
+              <ul id="saved-list"></ul>
+            </details>
+          </section>
+        </aside>
+      </section>
+      <section class="conversation card">
+        <div class="section-heading">
+          <span class="eyebrow">03 / CONVERSATION</span
+          ><span class="small"
+            >This conversation only. Saved reservations are kept.</span
+          >
+        </div>
+        <div id="events">
+          <p class="small">
+            A fresh start. Your conversation will appear here.
+          </p>
+        </div>
+      </section>
+      <footer>
+        Independent rental assessment demo · Not affiliated with Codebridge<span
+          >Use desktop Chrome for this voice demo.</span
+        >
+      </footer>
+    </main>
+    <dialog id="drawer">
+      <div class="section-heading">
+        <h2>Behind the conversation</h2>
+        <button id="close">Close ✕</button>
+      </div>
+      <p>
+        Recording evidence: pending. Run these checks and export your session
+        before recording.
+      </p>
+      <div id="cases"></div>
+      <p id="case-count" class="small">
+        0 of 5 checks captured. Recording proof pending.
+      </p>
+      <p class="small">
+        Historical fixture dates are accepted. Timing is release → speech
+        synthesis start callback, an event proxy, not acoustic latency. No
+        acoustic hands-free claim.
+      </p>
+      <button id="export">Export session evidence JSON</button>
+      <h3>Database snapshot</h3>
+      <pre id="database"></pre>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

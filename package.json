@@ -1,0 +1,22 @@
+{
+  "name": "codebridge-voice-studio",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local voice-first equipment reservation review demo",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.js",
+    "evidence": "node scripts/evidence.js",
+    "package:review": "node scripts/package-review.js",
+    "test:browser": "node scripts/browser-checks.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  },
+  "license": "UNLICENSED"
+}

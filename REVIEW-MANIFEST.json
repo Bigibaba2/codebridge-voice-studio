@@ -1,0 +1,198 @@
+{
+  "formatVersion": 1,
+  "purpose": "Fresh local review copy; not uploaded or published",
+  "files": [
+    {
+      "file": "src/server.js",
+      "bytes": 3803,
+      "sha256": "8a81c1f1a24bb82e7f9d21c1b2069727157fa44561306c7641d0e8a96c32dc4b"
+    },
+    {
+      "file": "src/catalog.js",
+      "bytes": 610,
+      "sha256": "020e24b975a0e25e486915ab988b77547f85b94d2f4b73c0c71f25f92c85ff87"
+    },
+    {
+      "file": "src/desk.js",
+      "bytes": 22353,
+      "sha256": "c597a3e4f9c61369125d44d97ea22f344cc8024817b969ef8010811b5dae1a98"
+    },
+    {
+      "file": "src/interpret.js",
+      "bytes": 16584,
+      "sha256": "cac9794c3c8d6122320044b4e8cef4e803129c569a5c7876c63fb9c7d75dbc5c"
+    },
+    {
+      "file": "src/order-interpret.js",
+      "bytes": 17621,
+      "sha256": "faf07596d377f8e16d3104b0eb6891258688e5a07afbed2918a281a0b0e70078"
+    },
+    {
+      "file": "public/index.html",
+      "bytes": 6778,
+      "sha256": "6de1e320cdca504b8a3a407a82241aaef602fe2655fe217920812933f91a8dcc"
+    },
+    {
+      "file": "public/styles.css",
+      "bytes": 7539,
+      "sha256": "90a2feaf811c242ada244332e7f87d69dca08093054623eed5ec91b9060a5a0d"
+    },
+    {
+      "file": "public/voice-controller.js",
+      "bytes": 10696,
+      "sha256": "0911182c9f78fca17829d1bdfb351115b41146a875f8f9732e02140fb26677c5"
+    },
+    {
+      "file": "public/app.js",
+      "bytes": 29903,
+      "sha256": "5a5d2f22fd908bdb52ea47a6be319cce78271f264d94d455281a1f09cbadedb3"
+    },
+    {
+      "file": "scripts/browser-checks.cjs",
+      "bytes": 63596,
+      "sha256": "1279b5efe42d85c682d655b7370a2e4b1782d6e46ad3bdd47ddced050bc5b51f"
+    },
+    {
+      "file": "scripts/check.js",
+      "bytes": 505,
+      "sha256": "851283635f06d7348728ce65630c4b2f4b36c430871622df7b8b9264624437ac"
+    },
+    {
+      "file": "scripts/evidence.js",
+      "bytes": 4049,
+      "sha256": "6db5cc406cc63801a8e35a7f078be548a944d9b2b17628a14abefd77364ddad4"
+    },
+    {
+      "file": "scripts/live-check.js",
+      "bytes": 8495,
+      "sha256": "faae39fe19ea15d98834adbc3b5bdcecc85281c7c489e9259fcac0aeb5705238"
+    },
+    {
+      "file": "scripts/measure-recording.js",
+      "bytes": 7499,
+      "sha256": "06f8898b07da8d477d44f9e21effa9d9be11848a966a243974a7cafd8ea32498"
+    },
+    {
+      "file": "scripts/package-review.js",
+      "bytes": 3632,
+      "sha256": "99361c7e308e12624f59581a11d53678ff51aa5a7b50c277d351fa184884e05b"
+    },
+    {
+      "file": "tests/interpret.test.js",
+      "bytes": 10314,
+      "sha256": "2f42575b105fb128352d9112c43f4893903267951c50780c929cda443df441d7"
+    },
+    {
+      "file": "tests/desk.test.js",
+      "bytes": 17567,
+      "sha256": "60570e7b633bde5ddf034c242cd54bb340a192658e5cf6b9ad47e047eb4350b0"
+    },
+    {
+      "file": "tests/dropped-items.test.js",
+      "bytes": 7480,
+      "sha256": "f097ee7070aef28009124861f5a43cd3b15ade167ab2304bc12753aebaee0f05"
+    },
+    {
+      "file": "tests/voice.test.js",
+      "bytes": 5204,
+      "sha256": "7fdb469bbdac47b8e150ceac9fc48c5e68eaa070a476e519836765876bd3b0f4"
+    },
+    {
+      "file": "tests/live-check.test.js",
+      "bytes": 5017,
+      "sha256": "fc4caea57693852c22d26802e14be65232ff82ef3c713922d8fb6d9a89d08f99"
+    },
+    {
+      "file": "tests/http.test.js",
+      "bytes": 1437,
+      "sha256": "79fbd725c7200b315de8b8ebdb4b18427f7e20b7db35bb7d5e7c5f6ac5aca411"
+    },
+    {
+      "file": "tests/orders.test.js",
+      "bytes": 21027,
+      "sha256": "558b6e9f554ed9bcfe05b209f95e64c5f9ef31cdfa3a510bb4e949b7e502b280"
+    },
+    {
+      "file": "tests/live-evidence.test.js",
+      "bytes": 1566,
+      "sha256": "3927738cd04b50cfc8b70e78b796ef3e92134e82e665b66a8a99861b2a69e0fe"
+    },
+    {
+      "file": "tests/recognition-options.test.js",
+      "bytes": 8063,
+      "sha256": "d30d385209b6e4349add1d2b1e2e11f7becd9c41a048a333a5dc205eaf5497e4"
+    },
+    {
+      "file": "tests/order-interpret.test.js",
+      "bytes": 26764,
+      "sha256": "314f05bed7452e5c41888ffe8d3ad891c67cd31e7a6fe56f3d1e9ca8eb270700"
+    },
+    {
+      "file": "tests/scenarios.json",
+      "bytes": 7109,
+      "sha256": "f5804e65380dbe60ea2f771e7851e80880f62d405c9bd8d890249171bc93d31a"
+    },
+    {
+      "file": "tests/measurement.test.js",
+      "bytes": 4475,
+      "sha256": "a8f4866845c8ecb2228ffac155d188ebf6e334f80db70394d0bf7c4315fe7ef6"
+    },
+    {
+      "file": "package.json",
+      "bytes": 587,
+      "sha256": "63de38f78f858a6eeb1ae389f41f1c13b5d8bc99fc1d14ae4925fb8509400de6"
+    },
+    {
+      "file": "README.md",
+      "bytes": 4354,
+      "sha256": "aa17f7a76fef656fa73fa828d1e18c83ae645715d043e5c26d24bec4751ceada"
+    },
+    {
+      "file": "docs/reviewer-guide.md",
+      "bytes": 5285,
+      "sha256": "0e557c88f51498045e386ea41a57ed15daa148c0c05c4ec8108e8d45c9fe24f8"
+    },
+    {
+      "file": "docs/recording-run-sheet.md",
+      "bytes": 2962,
+      "sha256": "d5f3d62bdcbbd75e22bdaf0c90cb40393ae2a6d3d8d093a776229cbbe2632614"
+    },
+    {
+      "file": "docs/test-results.md",
+      "bytes": 4467,
+      "sha256": "68b50482331beacff717b80a945885720ba4a5079f16fb6e4a5f456f6486c1a5"
+    },
+    {
+      "file": ".gitignore",
+      "bytes": 212,
+      "sha256": "4c7ed5156c623a13d69263f5bf0a6251e97a81b928476ab1286ce670478fd479"
+    },
+    {
+      "file": "evidence/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "exclusions": [
+    "All files not on the explicit allowlist",
+    "Existing Git history and remotes",
+    "Runtime databases and data directory",
+    "All existing evidence and live speech transcripts",
+    "Recordings and browser traces",
+    "Unreviewed documentation outside the allowlist",
+    "Environment and credential files",
+    "node_modules and archives"
+  ],
+  "checks": {
+    "explicitAllowlist": true,
+    "symlinksRejected": true,
+    "existingDestinationRefused": true,
+    "contentPatternScan": [
+      "absolute home path",
+      "private key header",
+      "credential-shaped token",
+      "email address"
+    ],
+    "limitation": "Pattern scans are not a comprehensive secret or personal-data audit. Human review remains required."
+  }
+}

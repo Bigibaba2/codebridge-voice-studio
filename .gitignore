@@ -1,0 +1,20 @@
+node_modules/
+data/
+evidence/*
+!evidence/.gitkeep
+.env*
+*.sqlite*
+*.db
+.DS_Store
+recordings/
+*.wav
+*.mp3
+*.mp4
+*.mov
+*.webm
+*.m4a
+*.ogg
+rental-studio-evidence*.json
+Screenshot*.png
+Screen Recording*
+capture*.png

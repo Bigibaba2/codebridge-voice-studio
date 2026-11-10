@@ -1,0 +1,323 @@
+[
+  {
+    "id": "normal",
+    "name": "Normal booking",
+    "turns": [
+      "Could you set aside a camera from October 13 to 15, 2026?",
+      "Yes, please"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "camera",
+      "quantity": 1,
+      "start": "2026-10-13",
+      "end": "2026-10-15"
+    }
+  },
+  {
+    "id": "correction",
+    "name": "Corrected dates",
+    "turns": [
+      "I need a camera from October 20 to 22, 2026",
+      "Actually, change the dates to October 23 through 25, 2026",
+      "Go ahead and book it"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "camera",
+      "quantity": 1,
+      "start": "2026-10-23",
+      "end": "2026-10-25"
+    }
+  },
+  {
+    "id": "stock",
+    "name": "Insufficient stock",
+    "turns": [
+      "Can I rent two cameras from October 10 to 12, 2026?",
+      "Confirm booking"
+    ],
+    "expected": {
+      "status": "unavailable",
+      "newBookings": 0
+    }
+  },
+  {
+    "id": "interruption",
+    "name": "Interrupted reply and quantity correction",
+    "turns": [
+      "Please reserve two tripods from November 1 to 3, 2026",
+      "Wait, make that one tripod",
+      "Book it"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "tripod",
+      "quantity": 1,
+      "start": "2026-11-01",
+      "end": "2026-11-03"
+    }
+  },
+  {
+    "id": "repeat",
+    "name": "Repeated confirmation",
+    "turns": [
+      "A microphone from November 5 through November 6, 2026",
+      "Confirm booking",
+      "Confirm booking",
+      "Yes, book it"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "microphone",
+      "quantity": 1,
+      "start": "2026-11-05",
+      "end": "2026-11-06"
+    }
+  },
+  {
+    "id": "year",
+    "name": "Missing year clarification",
+    "turns": [
+      "One camera from December 4 to 6",
+      "2027",
+      "Yes"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "camera",
+      "quantity": 1,
+      "start": "2027-12-04",
+      "end": "2027-12-06"
+    }
+  },
+  {
+    "id": "quantity",
+    "name": "Missing quantity without losing dates",
+    "turns": [
+      "Reserve tripod B from November 14 to November 16, 2026",
+      "I need two, please",
+      "Yes"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "tripod",
+      "quantity": 2,
+      "start": "2026-11-14",
+      "end": "2026-11-16"
+    }
+  },
+  {
+    "id": "natural",
+    "name": "Unscripted non-native phrasing",
+    "turns": [
+      "I need two number tripod B from November 14th to November 16th 2026",
+      "That looks right"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "tripod",
+      "quantity": 2,
+      "start": "2026-11-14",
+      "end": "2026-11-16"
+    }
+  },
+  {
+    "id": "ambiguous",
+    "name": "Ambiguous dates never booked",
+    "turns": [
+      "A camera from 11/12/2026 to 11/14/2026",
+      "Yes"
+    ],
+    "expected": {
+      "status": "collecting",
+      "newBookings": 0
+    }
+  },
+  {
+    "id": "repeated-date",
+    "name": "Repeated date is not silently collapsed",
+    "turns": [
+      "Reserve microphone C from November 22 November 22 2026",
+      "Yes"
+    ],
+    "expected": {
+      "status": "collecting",
+      "newBookings": 0
+    }
+  },
+  {
+    "id": "condition",
+    "name": "Conditional request cannot confirm",
+    "turns": [
+      "One camera from December 1 to 3, 2026",
+      "Yes, if it is free"
+    ],
+    "expected": {
+      "status": "collecting",
+      "newBookings": 0
+    }
+  },
+  {
+    "id": "unknown",
+    "name": "Unsupported equipment cannot book",
+    "turns": [
+      "Two drones from December 1 to 3, 2026",
+      "Yes"
+    ],
+    "expected": {
+      "status": "collecting",
+      "newBookings": 0
+    }
+  },
+  {
+    "id": "multi-normal",
+    "name": "All equipment in one reservation",
+    "turns": [
+      "one camera A, two tripod B and one microphone C from November 14 to November 16 2026",
+      "yes"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "items": [
+        {
+          "itemId": "camera",
+          "quantity": 1
+        },
+        {
+          "itemId": "tripod",
+          "quantity": 2
+        },
+        {
+          "itemId": "microphone",
+          "quantity": 1
+        }
+      ],
+      "start": "2026-11-14",
+      "end": "2026-11-16"
+    }
+  },
+  {
+    "id": "multi-correction",
+    "name": "Multi-item quantity and shared-date correction",
+    "turns": [
+      "one camera and two tripods from December 1 to 3 2026",
+      "actually one tripod",
+      "add one microphone",
+      "change dates to December 4 to 6 2026",
+      "book it"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "items": [
+        {
+          "itemId": "camera",
+          "quantity": 1
+        },
+        {
+          "itemId": "tripod",
+          "quantity": 1
+        },
+        {
+          "itemId": "microphone",
+          "quantity": 1
+        }
+      ],
+      "start": "2026-12-04",
+      "end": "2026-12-06"
+    }
+  },
+  {
+    "id": "multi-stock",
+    "name": "One unavailable line prevents the whole reservation",
+    "turns": [
+      "two cameras and one tripod from October 10 to 12 2026",
+      "yes"
+    ],
+    "expected": {
+      "status": "unavailable",
+      "newBookings": 0
+    }
+  },
+  {
+    "id": "multi-repeat",
+    "name": "Repeated approval creates only one multi-item reservation",
+    "turns": [
+      "one camera and one microphone from December 8 to 10 2026",
+      "confirm booking",
+      "yes",
+      "book it"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "items": [
+        {
+          "itemId": "camera",
+          "quantity": 1
+        },
+        {
+          "itemId": "microphone",
+          "quantity": 1
+        }
+      ],
+      "start": "2026-12-08",
+      "end": "2026-12-10"
+    }
+  },
+  {
+    "id": "multi-interruption",
+    "name": "Multi-item named correction after interruption (transcripts only)",
+    "turns": [
+      "one camera A, two tripod B and one microphone C from December 17 to December 19 2026",
+      "Change the tripods to one",
+      "confirm booking"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "items": [
+        {
+          "itemId": "camera",
+          "quantity": 1
+        },
+        {
+          "itemId": "tripod",
+          "quantity": 1
+        },
+        {
+          "itemId": "microphone",
+          "quantity": 1
+        }
+      ],
+      "start": "2026-12-17",
+      "end": "2026-12-19"
+    }
+  },
+  {
+    "id": "focused-interruption",
+    "name": "Focused tripod quantity correction (transcripts only)",
+    "turns": [
+      "Two Tripod B from December 20 to December 22 2026",
+      "Number one",
+      "Confirm booking"
+    ],
+    "expected": {
+      "status": "booked",
+      "newBookings": 1,
+      "itemId": "tripod",
+      "quantity": 1,
+      "start": "2026-12-20",
+      "end": "2026-12-22"
+    }
+  }
+]
