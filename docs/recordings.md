@@ -1,5 +1,7 @@
 # Recorded review materials
 
+[Public assignment source](https://github.com/Bigibaba2/codebridge-voice-studio) · [Live temporary reviewer demo](https://codebridge-temporary-reviewer-demo.onrender.com). The hosted demo uses isolated synthetic stock and temporary bookings; allow for Free-host wake-up. See [hosting limits and verification](FREE-REVIEWER-MODE.md).
+
 - [Introduction walkthrough, 1 minute 41.77 seconds](https://drive.google.com/file/d/1ooTmOCz-yiKsuqYj_Ci3_Z6yoDexLbGy/view?usp=drivesdk)
 
 - [Test 1: Normal booking](https://drive.google.com/file/d/1iCT2iUMzlPAJrdMeUPtd9e-BfjzvYNS0/view?usp=drivesdk)
@@ -21,4 +23,4 @@ All seven Drive files were verified as anyone-with-link Viewer, non-discoverable
 
 The user reviewed audible playback. Technical review checked decoded audio signal, sampled video frames and recorded database states, not an independent word-by-word listening pass. Exact acoustic response latency remains unmeasured. The interruption case shows control/visual behavior and a successful correction, with an ASR retry retained; no independently measured audible cutoff time is claimed.
 
-The original recorded tests exercised local mode. Optional hosted reviewer mode has additional synthetic isolation tests and temporary storage semantics, documented in [FREE-REVIEWER-MODE.md](FREE-REVIEWER-MODE.md). No hosted service or final submission is claimed by these links.
+The original recorded tests exercised local mode, not the live hosted origin. Hosted reviewer mode has additional local synthetic isolation tests and temporary storage semantics, documented with current deployment verification in [FREE-REVIEWER-MODE.md](FREE-REVIEWER-MODE.md). The hosted service is live, but hosted microphone recognition and acoustic latency have not been tested. These links do not establish final assignment submission.

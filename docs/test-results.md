@@ -35,10 +35,23 @@ Executed on this exact submission copy using Node.js 24.7.0. Tests use synthetic
 
 Raw newly generated synthetic traces and timing output are retained separately, not included in this source package. The recorded checks exercised the local mode before optional reviewer hosting was added. Booking/parser behavior is unchanged; the added temporary reviewer isolation and recovery paths have synthetic HTTP/browser coverage, not a new live microphone test.
 
+## Hosted verification
+
+The [temporary reviewer demo](https://codebridge-temporary-reviewer-demo.onrender.com) is live on Render. The Render API confirmed deployed public source commit `8f228389e29be24d14a52dafaf8908447c3ed46f`; this was not inferred from the application version. Auto-deploy is disabled, so subsequent documentation-only commits may differ from the running commit without runtime changes or a redeploy. `/api/config` reports version `2.1.0` and `temporary-reviewer-demo`. Native Chrome loaded the initial synthetic seed and visible temporary-booking notice.
+
+**15 independent hosted synthetic checks passed**, using 24 HTTP requests and two fresh owners:
+
+- Valid HTTPS certificate and HTTP-to-HTTPS 301 redirect; expected configuration.
+- Secure, HttpOnly, SameSite=Strict cookie; no credentials in JSON. Separate catalogs and cross-owner read, write, replay and conflict isolation.
+- Three-item review and explicit atomic confirmation; replay/repeated-confirmation idempotency; shortage blocks partial booking; a correction preserves the other values.
+- Temporary notice and CSP, nosniff, no-referrer and no-store headers.
+
+HSTS was absent. This was not a full security audit. No real microphone test, actual hosted expiry/restart/cold-start measurement or resource-exhaustion test was performed. Local recorded and automated results above are distinct from these hosted checks.
+
 ## Measurement boundaries
 
-No independent acoustic phoneme-boundary latency, word-error rate, end-to-end speech benchmark, comprehensive retry rate or time-saved study is supplied. The app uses deterministic parsing and no backend LLM or separately metered model API. Browser speech can use the browser provider. Full-stack economic cost has not been fully measured; hosting cost is unknown until a provider is selected.
+No independent acoustic phoneme-boundary latency, word-error rate, end-to-end speech benchmark, comprehensive retry rate or time-saved study is supplied. The app uses deterministic parsing and no backend LLM or separately metered model API. Browser speech can use the browser provider. Under browser-recognition, no-LLM and no-intermediary assumptions, separately metered application API fees are $0. Full-stack economic cost has not been fully measured. Separately, the deployed service uses Render Free with no paid resources provisioned. Workspace-wide Free quotas and the provider's documented suspension rules apply; see [hosting details](FREE-REVIEWER-MODE.md). This is not a free-credit estimate or an all-in per-conversation cost.
 
 ## Security and portability
 
-Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. No service has been deployed, and a separate deployment/billing review is still required. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.
+Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. The deployed service uses reviewer mode. Deploy status, configuration and initial UI are verified as described above; hosted microphone behavior and measured cold-start duration are not. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.

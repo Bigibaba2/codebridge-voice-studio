@@ -8,6 +8,11 @@
       "sha256": "156d68afdc2f00faf495f14eb6f743436a279850ee5cae684c1a6cf46ecf51bc"
     },
     {
+      "file": "src/reviewers.js",
+      "bytes": 3304,
+      "sha256": "6b60511c59aa007d2874f1bad0cef60271533b3446f72903afb77ffa68dcd38a"
+    },
+    {
       "file": "src/catalog.js",
       "bytes": 610,
       "sha256": "020e24b975a0e25e486915ab988b77547f85b94d2f4b73c0c71f25f92c85ff87"
@@ -51,6 +56,11 @@
       "file": "scripts/browser-checks.cjs",
       "bytes": 63596,
       "sha256": "1279b5efe42d85c682d655b7370a2e4b1782d6e46ad3bdd47ddced050bc5b51f"
+    },
+    {
+      "file": "scripts/reviewer-browser-checks.cjs",
+      "bytes": 8864,
+      "sha256": "09354341a367e839bbcd26c7eeab4ddb1f8dacf2a82fa07df6bf97c2d6536c7a"
     },
     {
       "file": "scripts/check.js",
@@ -118,6 +128,11 @@
       "sha256": "3927738cd04b50cfc8b70e78b796ef3e92134e82e665b66a8a99861b2a69e0fe"
     },
     {
+      "file": "tests/reviewers.test.js",
+      "bytes": 10657,
+      "sha256": "e092c6d79071ed16a341c8be2ba950579a9b058e44f5bbcdcf5aa19f54c6244c"
+    },
+    {
       "file": "tests/recognition-options.test.js",
       "bytes": 8063,
       "sha256": "d30d385209b6e4349add1d2b1e2e11f7becd9c41a048a333a5dc205eaf5497e4"
@@ -143,56 +158,6 @@
       "sha256": "808d24d6d77b5d487358a8e0cc4b0c44f7315cc8670967d275400390cdc7887f"
     },
     {
-      "file": "README.md",
-      "bytes": 5232,
-      "sha256": "255d956e1a65f2de77114645e31f3b36d871e8073f53c23f5b6831298698eab1"
-    },
-    {
-      "file": "docs/reviewer-guide.md",
-      "bytes": 5656,
-      "sha256": "c85b5c7a56fbff168b03ad4b5724b2367e12f157b4f2cc2b2130305f8e812749"
-    },
-    {
-      "file": "docs/recording-run-sheet.md",
-      "bytes": 2962,
-      "sha256": "d5f3d62bdcbbd75e22bdaf0c90cb40393ae2a6d3d8d093a776229cbbe2632614"
-    },
-    {
-      "file": "docs/test-results.md",
-      "bytes": 5190,
-      "sha256": "24b831b89f7d6fcb95f9c20256a7a30248c9e83f84df74870f67b39cc5edc18f"
-    },
-    {
-      "file": ".gitignore",
-      "bytes": 212,
-      "sha256": "4c7ed5156c623a13d69263f5bf0a6251e97a81b928476ab1286ce670478fd479"
-    },
-    {
-      "file": "evidence/.gitkeep",
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    {
-      "file": "docs/recorded-test-evidence.json",
-      "bytes": 16684,
-      "sha256": "f79a0aed588d86d579b18085226d0c194076c7f226042eb798bcc14a12625c86"
-    },
-    {
-      "file": "src/reviewers.js",
-      "bytes": 3304,
-      "sha256": "6b60511c59aa007d2874f1bad0cef60271533b3446f72903afb77ffa68dcd38a"
-    },
-    {
-      "file": "scripts/reviewer-browser-checks.cjs",
-      "bytes": 8864,
-      "sha256": "09354341a367e839bbcd26c7eeab4ddb1f8dacf2a82fa07df6bf97c2d6536c7a"
-    },
-    {
-      "file": "tests/reviewers.test.js",
-      "bytes": 10657,
-      "sha256": "e092c6d79071ed16a341c8be2ba950579a9b058e44f5bbcdcf5aa19f54c6244c"
-    },
-    {
       "file": ".node-version",
       "bytes": 7,
       "sha256": "bd4fa24ecc62c2170d1e350e8b14a0fcab2703dc13b509de03c8a57dcc57f5b4"
@@ -203,14 +168,49 @@
       "sha256": "05a04568918c00bdd65bcee7eba029ced0541e316a7459a339e2a71c005a6d1b"
     },
     {
+      "file": "README.md",
+      "bytes": 6011,
+      "sha256": "467e8b83bdf59df3f5b08ddf8ec8cdee968cef66877589a1b1ff1a139216e7b6"
+    },
+    {
       "file": "docs/FREE-REVIEWER-MODE.md",
-      "bytes": 7260,
-      "sha256": "116b68fb708fee98eb18f70d9347e48d66a4ec90e83ae3531d65a5dbc3e41ee5"
+      "bytes": 9433,
+      "sha256": "ac65731ea903395d2d31d8992112150e06f51dcc149b1ac6e9efdc4ece26fab9"
+    },
+    {
+      "file": "docs/reviewer-guide.md",
+      "bytes": 6797,
+      "sha256": "ccabb07e184f2bd96a4f37b0c46f2e7216a6072779a648e3ded9cd7ef915bdea"
+    },
+    {
+      "file": "docs/recording-run-sheet.md",
+      "bytes": 2962,
+      "sha256": "d5f3d62bdcbbd75e22bdaf0c90cb40393ae2a6d3d8d093a776229cbbe2632614"
+    },
+    {
+      "file": "docs/test-results.md",
+      "bytes": 7032,
+      "sha256": "9c75dd977b359a80667e787790a3d17fe4a5448d9b7439bf8cf1e13f30325718"
+    },
+    {
+      "file": "docs/recorded-test-evidence.json",
+      "bytes": 16684,
+      "sha256": "f79a0aed588d86d579b18085226d0c194076c7f226042eb798bcc14a12625c86"
     },
     {
       "file": "docs/recordings.md",
-      "bytes": 2820,
-      "sha256": "f0aa062cc759a96defa83f290e88995e1d72b3754fcc8ce2f8e3891e8be3d363"
+      "bytes": 3315,
+      "sha256": "cce3c3899392a47920f727af951d7828044728390f8f9d288b7f46e2783ae92f"
+    },
+    {
+      "file": ".gitignore",
+      "bytes": 212,
+      "sha256": "4c7ed5156c623a13d69263f5bf0a6251e97a81b928476ab1286ce670478fd479"
+    },
+    {
+      "file": "evidence/.gitkeep",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     }
   ],
   "exclusions": [

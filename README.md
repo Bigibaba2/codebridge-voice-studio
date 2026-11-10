@@ -1,10 +1,12 @@
 # Rental Studio
 
-A local voice-first equipment reservation demo for review. Independent project, not an official Codebridge product.
+A voice-first equipment reservation demo with local and temporary hosted review modes. Independent project, not an official Codebridge product.
 
 ## Review materials
 
-[Watch the 1:41.77 walkthrough](https://drive.google.com/file/d/1ooTmOCz-yiKsuqYj_Ci3_Z6yoDexLbGy/view?usp=drivesdk). The [six original test clips](docs/recordings.md), [before/after state evidence](docs/recorded-test-evidence.json) and [test results](docs/test-results.md) are available separately. A hosted demo is not yet deployed.
+[Open the temporary reviewer demo](https://codebridge-temporary-reviewer-demo.onrender.com) in desktop Chrome. It uses isolated synthetic stock per browser; bookings expire after 30 minutes at most and can disappear earlier on sleep or restart. The free host can sleep after 15 idle minutes; allow about one minute for wake-up (not measured here). See [hosting and verification limits](docs/FREE-REVIEWER-MODE.md).
+
+[Watch the 1:41.77 walkthrough](https://drive.google.com/file/d/1ooTmOCz-yiKsuqYj_Ci3_Z6yoDexLbGy/view?usp=drivesdk). The [six original test clips](docs/recordings.md), [before/after state evidence](docs/recorded-test-evidence.json), [test results](docs/test-results.md) and [public assignment source](https://github.com/Bigibaba2/codebridge-voice-studio) are available separately.
 
 ## Run
 
@@ -32,7 +34,7 @@ Tests and scenarios use artificial inputs. The evidence command generates new sy
 
 ## Privacy and browser limits
 
-The app does not record audio. Finalized recognized transcripts and reservation events are stored in the local database. Browser-default speech recognition may send microphone audio to the browser provider. Consent and a supported secure context (localhost or HTTPS) are required. Do not use private speech in a demonstration intended for sharing.
+The app does not record audio. Finalized recognized transcripts and reservation events are stored in the local database in local mode, or temporarily in isolated server memory in hosted reviewer mode. Browser-default speech recognition may send microphone audio to the browser provider. Consent and a supported secure context (localhost or HTTPS) are required. Do not use private speech in a demonstration intended for sharing.
 
 Recognition support, accuracy and speech synthesis depend on browser, OS and network. On-device mode is experimental and requires a verified readiness check; it cannot silently fall back to remote recognition. Optional model setup is an explicit user action. No model is bundled. Unsupported or interrupted recognition requests a retry rather than guessing a booking.
 
@@ -45,7 +47,7 @@ Recognition support, accuracy and speech synthesis depend on browser, OS and net
 
 ## Review scope
 
-See docs/reviewer-guide.md for limitations and costs, and docs/test-results.md for reviewed evidence. Five recorded checks plus a repeat-confirmation continuation are complete; a separate user-approved walkthrough is 101.77 seconds. Videos are intentionally separate from this source package. This package includes no private database, raw live transcripts, recording, existing Git history, published demo URL or submission proof. A private GitHub repository has been created separately; this packaging step does not establish a successful source push. Video upload and deployment remain separate.
+See [reviewer-guide.md](docs/reviewer-guide.md) for limitations and costs, and [test-results.md](docs/test-results.md) for reviewed evidence. Five recorded checks plus a repeat-confirmation continuation are complete; a separate user-approved walkthrough is 101.77 seconds. The assignment source is public, seven selected video links are verified, and the temporary reviewer service is live. Hosted microphone behavior and acoustic latency have not been measured. Videos remain separate from this source package, which excludes private databases, raw live transcripts, recording bytes and unrelated repository content. These materials do not establish final assignment submission.
 
 To reproduce a fresh sanitized LOCAL copy into a new directory:
 
@@ -57,4 +59,4 @@ The copier uses an explicit allowlist and refuses existing destinations. REVIEW-
 
 ## Optional temporary reviewer mode
 
-For a separately approved hosted simulation, see [FREE-REVIEWER-MODE.md](docs/FREE-REVIEWER-MODE.md). REVIEWER_MODE=1 gives each browser an isolated in-memory catalog with finite retention and abuse limits. No existing local database is opened. These demo bookings disappear on expiry, sleep or restart. The supplied Render configuration proposes only a free service; no deployment or zero-billing guarantee is implied. CLI startup refuses a non-loopback host without reviewer mode.
+The [live hosted simulation](https://codebridge-temporary-reviewer-demo.onrender.com) runs with REVIEWER_MODE=1, giving each browser an isolated in-memory catalog with finite retention and abuse limits. No existing local database is opened. These demo bookings disappear on expiry, sleep or restart. The deployed service uses Render Free; no paid resources were provisioned. Free quotas are workspace-wide and availability is conditional, not guaranteed. See [FREE-REVIEWER-MODE.md](docs/FREE-REVIEWER-MODE.md) for deployment and billing limits. CLI startup refuses a non-loopback host without reviewer mode.
