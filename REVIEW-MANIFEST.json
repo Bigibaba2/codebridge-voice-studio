@@ -169,18 +169,18 @@
     },
     {
       "file": "README.md",
-      "bytes": 6011,
-      "sha256": "467e8b83bdf59df3f5b08ddf8ec8cdee968cef66877589a1b1ff1a139216e7b6"
+      "bytes": 6214,
+      "sha256": "d781efdea2444bcd2ef50a6c8565a2cc3e87dacbc6a39c79e58224a61896b2eb"
     },
     {
       "file": "docs/FREE-REVIEWER-MODE.md",
-      "bytes": 9433,
-      "sha256": "ac65731ea903395d2d31d8992112150e06f51dcc149b1ac6e9efdc4ece26fab9"
+      "bytes": 9901,
+      "sha256": "2e63273b859680846318b8bf294a3863a46865d76d3641ff4e9e29c1a3630fc2"
     },
     {
       "file": "docs/reviewer-guide.md",
-      "bytes": 6797,
-      "sha256": "ccabb07e184f2bd96a4f37b0c46f2e7216a6072779a648e3ded9cd7ef915bdea"
+      "bytes": 6993,
+      "sha256": "404e3c60f713e08475c4c2680a395ea008c097226f390eb579755b9758f56346"
     },
     {
       "file": "docs/recording-run-sheet.md",
@@ -189,8 +189,8 @@
     },
     {
       "file": "docs/test-results.md",
-      "bytes": 7032,
-      "sha256": "9c75dd977b359a80667e787790a3d17fe4a5448d9b7439bf8cf1e13f30325718"
+      "bytes": 8205,
+      "sha256": "fab9ac6e2430dfd62b9bc82f72f1593319b457da42e6e8decd008a0e84131ec2"
     },
     {
       "file": "docs/recorded-test-evidence.json",
@@ -199,8 +199,8 @@
     },
     {
       "file": "docs/recordings.md",
-      "bytes": 3315,
-      "sha256": "cce3c3899392a47920f727af951d7828044728390f8f9d288b7f46e2783ae92f"
+      "bytes": 3566,
+      "sha256": "f2028050624b4dbc47c7a6daa752f91f8a697c249bba7a885a8b1b860cf83427"
     },
     {
       "file": ".gitignore",

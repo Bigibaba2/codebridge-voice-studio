@@ -47,7 +47,7 @@ Recognition support, accuracy and speech synthesis depend on browser, OS and net
 
 ## Review scope
 
-See [reviewer-guide.md](docs/reviewer-guide.md) for limitations and costs, and [test-results.md](docs/test-results.md) for reviewed evidence. Five recorded checks plus a repeat-confirmation continuation are complete; a separate user-approved walkthrough is 101.77 seconds. The assignment source is public, seven selected video links are verified, and the temporary reviewer service is live. Hosted microphone behavior and acoustic latency have not been measured. Videos remain separate from this source package, which excludes private databases, raw live transcripts, recording bytes and unrelated repository content. These materials do not establish final assignment submission.
+See [reviewer-guide.md](docs/reviewer-guide.md) for limitations and costs, and [test-results.md](docs/test-results.md) for reviewed evidence. Five recorded checks plus a repeat-confirmation continuation are complete; a separate user-approved walkthrough is 101.77 seconds. The assignment source is public, seven selected video links are verified, and the temporary reviewer service is live. A user-run hosted voice smoke test completed one booking after equipment and quantity clarification, verified through the Chrome UI and session export. It was not flawless first-utterance recognition; independent acoustic playback and latency measurement remain unavailable. Videos remain separate from this source package, which excludes private databases, raw live transcripts, recording bytes and unrelated repository content. These materials do not establish final assignment submission.
 
 To reproduce a fresh sanitized LOCAL copy into a new directory:
 

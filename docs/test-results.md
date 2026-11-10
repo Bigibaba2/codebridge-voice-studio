@@ -33,7 +33,7 @@ Executed on this exact submission copy using Node.js 24.7.0. Tests use synthetic
 | npm run test:browser | 55/55 passed on the updated source | Fresh headless Chrome contexts and synthetic speech; existing Playwright installation used, no microphone. |
 | npm run test:reviewer-browser | Passed | Two isolated contexts, cookie flags, synthetic booking, reload and expiry recovery, empty hosted diagnostics and cold-start gating. |
 
-Raw newly generated synthetic traces and timing output are retained separately, not included in this source package. The recorded checks exercised the local mode before optional reviewer hosting was added. Booking/parser behavior is unchanged; the added temporary reviewer isolation and recovery paths have synthetic HTTP/browser coverage, not a new live microphone test.
+Raw newly generated synthetic traces and timing output are retained separately, not included in this source package. The recorded checks exercised the local mode before optional reviewer hosting was added. Booking/parser behavior is unchanged; the added temporary reviewer isolation and recovery paths have synthetic HTTP/browser coverage. The separate user-run hosted voice smoke test below is not part of these automated results.
 
 ## Hosted verification
 
@@ -46,7 +46,13 @@ The [temporary reviewer demo](https://codebridge-temporary-reviewer-demo.onrende
 - Three-item review and explicit atomic confirmation; replay/repeated-confirmation idempotency; shortage blocks partial booking; a correction preserves the other values.
 - Temporary notice and CSP, nosniff, no-referrer and no-store headers.
 
-HSTS was absent. This was not a full security audit. No real microphone test, actual hosted expiry/restart/cold-start measurement or resource-exhaustion test was performed. Local recorded and automated results above are distinct from these hosted checks.
+HSTS was absent. This was not a full security audit. These synthetic checks did not use a microphone. Actual hosted expiry/restart/cold-start measurement and resource-exhaustion testing were not performed. Local recorded and automated results above are distinct from these hosted checks.
+
+### User-run hosted voice smoke test
+
+The user performed a live voice test on the hosted demo. The Chrome UI and session export confirmed exactly one new booking for one camera and one tripod, December 10–12, 2027, with two total reservations including the seed. Initial recognition required equipment and quantity clarification before explicit confirmation. This was a successful clarification-assisted flow, not flawless first-utterance accuracy.
+
+The selected setting at export was browser-default recognition with `en-US`. Hosted diagnostic collection is intentionally disabled, so per-turn recognition metadata was absent and the exported setting does not establish every turn's configuration. No repeated-confirmation turn occurred in this particular user test. No hosted recording, independent acoustic playback, exact response-latency measurement or broad recognition-accuracy benchmark supports this run. Raw transcripts, identifiers, timestamps and the private export are not published here.
 
 ## Measurement boundaries
 
@@ -54,4 +60,4 @@ No independent acoustic phoneme-boundary latency, word-error rate, end-to-end sp
 
 ## Security and portability
 
-Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. The deployed service uses reviewer mode. Deploy status, configuration and initial UI are verified as described above; hosted microphone behavior and measured cold-start duration are not. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.
+Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. The deployed service uses reviewer mode. Deploy status, configuration, initial UI and the clarification-assisted user voice test are verified within the evidence limits described above. Acoustic response latency and actual cold-start duration remain unmeasured. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.
