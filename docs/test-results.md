@@ -16,6 +16,20 @@ Expected inputs and outcomes are specified in recording-run-sheet.md. Sanitized 
 
 The six original clips decode with video and nonzero audio signal. Decoded channels are identical, not isolated speaker tracks. Signal analysis does not prove word-by-word intelligibility. The user reported correct audio and interruption behavior. Original evidence retains retries.
 
+## Coarse local response-time observations
+
+The user listened to the first request/response exchange in each of the five local recordings and reported approximate clip-relative boundaries. These are coarse listening estimates, not independently verified last-user-phoneme to first-assistant-phoneme measurements.
+
+| Local recorded case | Approximate end of user speech | Approximate start of assistant speech | Approximate gap |
+| --- | --- | --- | --- |
+| Normal reservation | 0:09 | 0:11 | 2 seconds |
+| Date correction | 0:08 | 0:10 | 2 seconds |
+| Unavailable stock | 0:06 | 0:07 | 1 second |
+| Interruption / retry, initial response before interruption | 0:07 | Late 0:08, approaching 0:09 | 1–2 seconds |
+| Repeated confirmation | 0:06 | 0:08 | 2 seconds |
+
+Across these five observations, the descriptive median is about 2 seconds and the reported gap range is about 1–2 seconds. The interruption observation remains an interval; no exact point or midpoint was assigned. Rounding and boundary-placement uncertainty are unknown, and the intervals are not statistical confidence intervals. These observations do not measure the interruption cutoff, hosted response time or cold starts. Five coarse observations do not establish a representative p95, which is not reported.
+
 ## Walkthrough
 
 A separate 101.77-second final walkthrough was technically checked and approved by the user after playback. It uses a straight cut to the complete replacement closing, without speed changes or synthesized narration. Original recordings were unchanged. The walkthrough is a concise presentation, not the complete uncut test evidence. Video delivery remains separate from source publication.
@@ -56,8 +70,8 @@ The selected setting at export was browser-default recognition with `en-US`. Hos
 
 ## Measurement boundaries
 
-No independent acoustic phoneme-boundary latency, word-error rate, end-to-end speech benchmark, comprehensive retry rate or time-saved study is supplied. The app uses deterministic parsing and no backend LLM or separately metered model API. Browser speech can use the browser provider. Under browser-recognition, no-LLM and no-intermediary assumptions, separately metered application API fees are $0. Full-stack economic cost has not been fully measured. Separately, the deployed service uses Render Free with no paid resources provisioned. Workspace-wide Free quotas and the provider's documented suspension rules apply; see [hosting details](FREE-REVIEWER-MODE.md). This is not a free-credit estimate or an all-in per-conversation cost.
+The five coarse user-listened local response estimates above are the available acoustic timing evidence. Exact or independently verified phoneme-boundary latency, hosted acoustic latency, word-error rate, a representative end-to-end speech benchmark, comprehensive retry rate and a time-saved study remain unavailable. The app uses deterministic parsing and no backend LLM or separately metered model API. Browser speech can use the browser provider. Under browser-recognition, no-LLM and no-intermediary assumptions, separately metered application API fees are $0. Full-stack economic cost has not been fully measured. Separately, the deployed service uses Render Free with no paid resources provisioned. Workspace-wide Free quotas and the provider's documented suspension rules apply; see [hosting details](FREE-REVIEWER-MODE.md). This is not a free-credit estimate or an all-in per-conversation cost.
 
 ## Security and portability
 
-Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. The deployed service uses reviewer mode. Deploy status, configuration, initial UI and the clarification-assisted user voice test are verified within the evidence limits described above. Acoustic response latency and actual cold-start duration remain unmeasured. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.
+Default local mode has shared unauthenticated state and must remain loopback-only. Optional reviewer mode uses isolated in-memory catalogs and secure bearer cookies, finite quotas and expiry; it is not production account authentication or durable storage. See FREE-REVIEWER-MODE.md. The deployed service uses reviewer mode. Deploy status, configuration, initial UI and the clarification-assisted user voice test are verified within the evidence limits described above. Hosted acoustic response latency and actual cold-start duration remain unmeasured; the coarse local listening estimates above do not establish either. Browser microphone features require localhost or HTTPS and user permission. The runtime needs Node.js 22.13+ with built-in SQLite and a compatible desktop browser. The optional browser harness needs Playwright 1.62.1 and installed Chrome; set CHROMIUM_PATH outside the default macOS location. No runtime dependencies or API keys are required. The package is UNLICENSED; it does not grant reuse rights.

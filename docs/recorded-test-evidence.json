@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "scope": "Synthetic equipment-booking fixtures from genuine user-operated voice checks. Sanitized database snapshots, not complete database exports.",
   "redactions": "Session IDs, timestamps, raw requests/transcripts and local paths removed. Reservation IDs replaced by stable test labels; dates and quantities are unchanged.",
-  "measurementLimits": "No acoustic latency or independent listening claim. User reviewed recording sound. Test 4 includes a recognition retry; Test 5 includes a separately recorded continuation.",
+  "measurementLimits": "Five coarse user-listened local first-response estimates are reported separately in docs/test-results.md, with a descriptive median of about 2 seconds and reported range of about 1–2 seconds. Rounding and boundary-placement uncertainty are unknown; no exact, independently verified phoneme-level or hosted latency, representative p95, or interruption-cutoff timing is claimed. Test 4 includes a recognition retry; Test 5 includes a separately recorded continuation.",
   "cases": [
     {
       "case": "1-normal",
